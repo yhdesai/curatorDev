@@ -15,21 +15,26 @@
  */
 package io.github.yhdesai.curator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,13 +44,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.provider.MediaStore.Video.Thumbnails.VIDEO_ID;
+
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-
-    public static String video_token = "token here";
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
-
+    private static final String TAG = "MainActivity";
+    public static String video_token = "token here";
     private ListView mMessageListView;
     private MessageAdapter mMessageAdapter;
     private ProgressBar mProgressBar;
@@ -86,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         mMessageAdapter = new MessageAdapter(this, R.layout.item_message, friendlyMessages);
         mMessageListView.setAdapter(mMessageAdapter);
 
+
         // Initialize progress bar
         mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Enable Send button when there's text to send
 
-       // mVideoNameEditText.addTextChangedListener(new TextWatcher() {
+        // mVideoNameEditText.addTextChangedListener(new TextWatcher() {
 
 
         mVideoTokenEditText.addTextChangedListener(new TextWatcher() {
@@ -142,10 +148,17 @@ public class MainActivity extends AppCompatActivity {
                 mMessageAdapter.add(friendlyMessage);
             }
 
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {}
-            public void onChildRemoved(DataSnapshot dataSnapshot) {}
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            }
+
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+            }
+
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
+
+            public void onCancelled(DatabaseError databaseError) {
+            }
         };
         mMessagesDatabaseReference.addChildEventListener(mChildEventListener);
     }

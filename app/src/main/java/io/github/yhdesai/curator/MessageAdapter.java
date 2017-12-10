@@ -2,17 +2,33 @@ package io.github.yhdesai.curator;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
+import com.google.android.youtube.player.YouTubeThumbnailLoader;
+import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
+
+    private Button playButton;
+    private static final int REQ_START_STANDALONE_PLAYER = 1;
+    private static final int REQ_RESOLVE_SERVICE_MISSING = 2;
+
+    private static final String VIDEO_ID = "cdgQpa1pUUE";
+
+
     public MessageAdapter(Context context, int resource, List<FriendlyMessage> objects) {
         super(context, resource, objects);
     }
@@ -26,8 +42,62 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
         ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
         TextView videoNameTextView = (TextView) convertView.findViewById(R.id.videoNameTextView);
         TextView videoTokenTextView = (TextView) convertView.findViewById(R.id.videoTokenTextView);
+        Button playButton = (Button) convertView.findViewById(R.id.playButton);
 
         FriendlyMessage message = getItem(position);
+
+// for displaying the name and the token
+        videoNameTextView.setText(message.getText());
+        videoTokenTextView.setText(message.getName());
+
+
+
+        return convertView;
+/*
+        String url = "https://img.youtube.com/vi/" + message.getName() + "/default.jpg"
+
+      //  String url = "https://img.youtube.com/vi/"+videoURL.split("\\=")[1]+"/0.jpg";
+        Glide.with(this).load(url).into(imageView);
+*/
+        // for loading the thumbnail
+
+        /*
+        final YouTubeThumbnailView youTubeThumbnailView = (YouTubeThumbnailView) convertView.findViewById(R.id.thumbnail);
+        youTubeThumbnailView.initialize(DeveloperKey.DEVELOPER_KEY, new YouTubeThumbnailView.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubeThumbnailView youTubeThumbnailView, final YouTubeThumbnailLoader youTubeThumbnailLoader) {
+                youTubeThumbnailLoader.setVideo(token);
+                youTubeThumbnailLoader.setOnThumbnailLoadedListener(new YouTubeThumbnailLoader.OnThumbnailLoadedListener() {
+                    @Override
+                    public void onThumbnailLoaded(YouTubeThumbnailView youTubeThumbnailView, String s) {
+                        youTubeThumbnailLoader.release();
+                    }
+
+                    @Override
+                    public void onThumbnailError(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader.ErrorReason errorReason) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubeThumbnailView youTubeThumbnailView, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        });
+
+
+        */
+
+    }
+
+
+}
+
+
+// playVideoButton.setOnClickListener(this);
+// playPlaylistButton.setOnClickListener(this);
+
 
 
         /*
@@ -45,9 +115,43 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
         }
 
         */
+
+/*
         videoNameTextView.setText(message.getText());
         videoTokenTextView.setText(message.getName());
 
+
         return convertView;
     }
+
 }
+*/
+/*
+    public void onClick extends Activity(View view) {
+
+
+
+
+        Intent intent = null;
+
+        intent = YouTubeStandalonePlayer.createVideoIntent(MainActivity, DeveloperKey.DEVELOPER_KEY, VIDEO_ID);
+
+
+        if (intent != null) {
+            if (canResolveIntent(intent)) {
+                startActivityForResult(intent, REQ_START_STANDALONE_PLAYER);
+            } else {
+                // Could not resolve the intent - must need to install or update the YouTube API service.
+                YouTubeInitializationResult.SERVICE_MISSING
+                        .getErrorDialog(MainActivity, REQ_RESOLVE_SERVICE_MISSING).show();
+            }
+        }
+
+
+    }
+*/
+
+
+
+
+
