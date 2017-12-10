@@ -63,8 +63,7 @@
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="play"
-        android:onClick="onClick"/>
+        android:text="play"/>
 
 
 </LinearLayout>
