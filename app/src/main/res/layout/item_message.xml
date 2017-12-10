@@ -50,20 +50,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:text="name" />
 
-    <TextView
-        android:id="@+id/videoTokenTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:text="token" />
 
-
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="play"/>
 
 
 </LinearLayout>
