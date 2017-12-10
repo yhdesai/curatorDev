@@ -8,14 +8,6 @@
     android:layout_marginStart="@dimen/activity_horizontal_margin"
     android:orientation="vertical">
 
-    <com.google.android.youtube.player.YouTubeThumbnailView
-        android:id="@+id/thumbnail1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/no_thumbnail" />
 
     <com.codewaves.youtubethumbnailview.ThumbnailView android:id="@+id/thumbnail"
         android:layout_width="320dp"

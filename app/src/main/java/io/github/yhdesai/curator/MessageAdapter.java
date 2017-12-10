@@ -3,6 +3,7 @@ package io.github.yhdesai.curator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -24,11 +25,10 @@ import static java.lang.Integer.parseInt;
 
 public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
 
-    private Button playButton;
     private static final int REQ_START_STANDALONE_PLAYER = 1;
     private static final int REQ_RESOLVE_SERVICE_MISSING = 2;
-
-    private static final String VIDEO_ID = "cdgQpa1pUUE";
+    private static final String TAG = "MyActivity";
+    private Button playButton;
 
 
     public MessageAdapter(Context context, int resource, List<FriendlyMessage> objects) {
@@ -45,7 +45,7 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
         TextView videoNameTextView = (TextView) convertView.findViewById(R.id.videoNameTextView);
         TextView videoTokenTextView = (TextView) convertView.findViewById(R.id.videoTokenTextView);
         Button playButton = (Button) convertView.findViewById(R.id.playButton);
-         ThumbnailView thumb = (ThumbnailView) convertView.findViewById(R.id.thumbnail);
+        ThumbnailView thumb = (ThumbnailView) convertView.findViewById(R.id.thumbnail);
 
         FriendlyMessage message = getItem(position);
 
@@ -54,12 +54,8 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
         videoTokenTextView.setText(message.getName());
 
 
-
-
-       ThumbnailLoader.initialize(DeveloperKey.DEVELOPER_KEY);
-
-        String url = "https://www.youtube.com/watch?v=" + VIDEO_ID;
-        thumb.loadThumbnail(url);
+        ThumbnailLoader.initialize(DeveloperKey.DEVELOPER_KEY);
+        thumb.loadThumbnail("https://www.youtube.com/watch?v=" + message.getName());
         return convertView;
 /*
         String url = "https://img.youtube.com/vi/" + message.getName() + "/default.jpg"

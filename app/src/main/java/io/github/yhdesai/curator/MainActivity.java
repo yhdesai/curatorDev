@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
-        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("Videos");
+        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("Category1");
 
         // Initialize references to views
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -136,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 mMessagesDatabaseReference.push().setValue(friendlyMessage);
 
                 // Clear input box
-                mVideoNameEditText.setText("Name");
-                mVideoTokenEditText.setText("Token");
+                mVideoNameEditText.setText("Video Name");
+                mVideoTokenEditText.setText("RBXZlYdiizk");
             }
         });
 
