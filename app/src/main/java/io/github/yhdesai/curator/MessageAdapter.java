@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -53,17 +54,25 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
         videoNameTextView.setText(message.getText());
         videoTokenTextView.setText(message.getName());
 
-
         ThumbnailLoader.initialize(DeveloperKey.DEVELOPER_KEY);
         thumb.loadThumbnail("https://www.youtube.com/watch?v=" + message.getName());
-        return convertView;
+
+
+
+
+
+
+}
+
+
+// Intent intent = YouTubeStandalonePlayer.createVideoIntent(this, DeveloperKey.DEVELOPER_KEY, message.getName());
 /*
         String url = "https://img.youtube.com/vi/" + message.getName() + "/default.jpg"
 
       //  String url = "https://img.youtube.com/vi/"+videoURL.split("\\=")[1]+"/0.jpg";
         Glide.with(this).load(url).into(imageView);
 */
-        // for loading the thumbnail
+// for loading the thumbnail
 
         /*
         final YouTubeThumbnailView youTubeThumbnailView = (YouTubeThumbnailView) convertView.findViewById(R.id.thumbnail);
@@ -93,13 +102,8 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
 
         */
 
-    }
 
-
-}
-
-
-// playVideoButton.setOnClickListener(this);
+//playButton.setOnClickListener(activity);
 // playPlaylistButton.setOnClickListener(this);
 
 
@@ -154,8 +158,6 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
 
     }
 */
-
-
 
 
 

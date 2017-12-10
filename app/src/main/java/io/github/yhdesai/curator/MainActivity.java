@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     private static final String TAG = "MainActivity";
     public static String video_token = "token here";
-    private ListView mMessageListView;
+    public ListView mMessageListView;
     private MessageAdapter mMessageAdapter;
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
