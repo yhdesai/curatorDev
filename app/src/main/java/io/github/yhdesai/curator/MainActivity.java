@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     public ListView mMessageListView;
     private MessageAdapter mMessageAdapter;
     private ProgressBar mProgressBar;
-    private ImageButton mPhotoPickerButton;
     private EditText mVideoNameEditText;
     private EditText mVideoTokenEditText;
     private Button mSendButton;
@@ -81,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize references to views
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
-        mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
         mVideoNameEditText = (EditText) findViewById(R.id.videoNameEditText);
         mVideoTokenEditText = (EditText) findViewById(R.id.videoTokenEditText);
         mSendButton = (Button) findViewById(R.id.sendButton);
@@ -96,12 +94,7 @@ public class MainActivity extends AppCompatActivity {
         mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 
         // ImagePickerButton shows an image picker to upload a image for a message
-        mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO: Fire an intent to show an image picker
-            }
-        });
+
 
         // Enable Send button when there's text to send
 
@@ -136,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 mMessagesDatabaseReference.push().setValue(friendlyMessage);
 
                 // Clear input box
-                mVideoNameEditText.setText("Video Name");
-                mVideoTokenEditText.setText("RBXZlYdiizk");
+                mVideoNameEditText.setText("");
+                mVideoTokenEditText.setText("");
             }
         });
 
