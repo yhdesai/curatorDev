@@ -55,7 +55,7 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
       //  videoTokenTextView.setText(message.getName());
 
         ThumbnailLoader.initialize(DeveloperKey.DEVELOPER_KEY);
-        thumb.loadThumbnail("https://www.youtube.com/watch?v=" + message.getName());
+        thumb.loadThumbnail( message.getName());
 
 
 
