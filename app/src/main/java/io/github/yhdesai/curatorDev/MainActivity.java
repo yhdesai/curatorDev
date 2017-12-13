@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mSendButton;
 
     private String mToken;
+    public int category = 1;
 
     // Firebase instance variables
     private FirebaseDatabase mFirebaseDatabase;
