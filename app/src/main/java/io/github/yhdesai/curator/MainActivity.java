@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
         // Initialize references to views
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
-        mVideoNameEditText = (EditText) findViewById(R.id.videoNameEditText);
-        mVideoTokenEditText = (EditText) findViewById(R.id.videoTokenEditText);
-        mSendButton = (Button) findViewById(R.id.sendButton);
+     //   mVideoNameEditText = (EditText) findViewById(R.id.videoNameEditText);
+      //  mVideoTokenEditText = (EditText) findViewById(R.id.videoTokenEditText);
+      //  mSendButton = (Button) findViewById(R.id.sendButton);
 
         // Initialize message ListView and its adapter
         List<FriendlyMessage> friendlyMessages = new ArrayList<>();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         // Enable Send button when there's text to send
 
         // mVideoNameEditText.addTextChangedListener(new TextWatcher() {
-
+/*
 
         mVideoTokenEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -124,21 +124,21 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
             }
         });
-        mVideoNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+   //     mVideoNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
 
         // Send button sends a message and clears the EditText
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+    //    mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FriendlyMessage friendlyMessage = new FriendlyMessage(mVideoNameEditText.getText().toString(), mVideoTokenEditText.getText().toString(), null);
-                mMessagesDatabaseReference.push().setValue(friendlyMessage);
+    //            FriendlyMessage friendlyMessage = new FriendlyMessage(mVideoNameEditText.getText().toString(), mVideoTokenEditText.getText().toString(), null);
+    //            mMessagesDatabaseReference.push().setValue(friendlyMessage);
 
                 // Clear input box
-                mVideoNameEditText.setText("");
-                mVideoTokenEditText.setText("");
+      //          mVideoNameEditText.setText("");
+      //          mVideoTokenEditText.setText("");
             }
         });
-
+*/
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
