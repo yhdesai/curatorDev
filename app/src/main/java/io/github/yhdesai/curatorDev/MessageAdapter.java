@@ -44,7 +44,7 @@ public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_message, parent, false);
         }
 
-        ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
+      //  ImageView photoImageView = (ImageView) convertView.findViewById(R.id.photoImageView);
         TextView videoNameTextView = (TextView) convertView.findViewById(R.id.videoNameTextView);
     //   TextView videoTokenTextView = (TextView) convertView.findViewById(R.id.videoTokenTextView);
      //   Button playButton = (Button) convertView.findViewById(R.id.playButton);

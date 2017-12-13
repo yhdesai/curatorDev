@@ -48,7 +48,7 @@ import java.util.List;
 
 import static android.provider.MediaStore.Video.Thumbnails.VIDEO_ID;
 
-public class MainActivity extends AppCompatActivity {
+public class category2 extends AppCompatActivity {
 
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     private static final String TAG = "MainActivity";
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mSendButton;
 
     private String mToken;
-   // public int category = 1;
+    // public int category = 1;
 
     // Firebase instance variables
     private FirebaseDatabase mFirebaseDatabase;
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     private float x1, x2;
     static final int MIN_DISTANCE = 0;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +81,14 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
-        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("category1");
+        mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("category2");
 
         // Initialize references to views
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mMessageListView = (ListView) findViewById(R.id.messageListView);
-        mVideoNameEditText = (EditText) findViewById(R.id.videoNameEditText);
-        mVideoTokenEditText = (EditText) findViewById(R.id.videoTokenEditText);
-        mSendButton = (Button) findViewById(R.id.sendButton);
+        //   mVideoNameEditText = (EditText) findViewById(R.id.videoNameEditText);
+        //  mVideoTokenEditText = (EditText) findViewById(R.id.videoTokenEditText);
+        //  mSendButton = (Button) findViewById(R.id.sendButton);
 
         // Initialize message ListView and its adapter
         List<FriendlyMessage> friendlyMessages = new ArrayList<>();
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         // Enable Send button when there's text to send
 
         // mVideoNameEditText.addTextChangedListener(new TextWatcher() {
-
+/*
 
         mVideoTokenEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -125,21 +125,21 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
             }
         });
-        mVideoNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+   //     mVideoNameEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
 
         // Send button sends a message and clears the EditText
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+    //    mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               FriendlyMessage friendlyMessage = new FriendlyMessage(mVideoNameEditText.getText().toString(), mVideoTokenEditText.getText().toString(), null);
-                mMessagesDatabaseReference.push().setValue(friendlyMessage);
+    //            FriendlyMessage friendlyMessage = new FriendlyMessage(mVideoNameEditText.getText().toString(), mVideoTokenEditText.getText().toString(), null);
+    //            mMessagesDatabaseReference.push().setValue(friendlyMessage);
 
                 // Clear input box
-               mVideoNameEditText.setText("");
-                mVideoTokenEditText.setText("");
+      //          mVideoNameEditText.setText("");
+      //          mVideoTokenEditText.setText("");
             }
         });
-
+*/
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -194,13 +194,14 @@ public class MainActivity extends AppCompatActivity {
                     // Left to Right swipe action
                     if (x2 > x1) {
                         Toast.makeText(this, "Left to Right swipe [Next]", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(category2.this, MainActivity.class);
+                        startActivity(intent);
+
                     }
 
                     // Right to left swipe action
                     else {
                         Toast.makeText(this, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, category2.class);
-                        startActivity(intent);
 
                     }
 

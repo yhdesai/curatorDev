@@ -15,7 +15,7 @@
         android:background="@android:color/black"
         android:foreground="?android:attr/selectableItemBackground"
         app:youtube_minThumbnailWidth="320"
-        app:youtube_titleVisible="true"
+        app:youtube_titleVisible="false"
         app:youtube_titleTextSize="14sp"
         app:youtube_titleColor="@android:color/white"
         app:youtube_titleMaxLines="1"
@@ -35,14 +35,6 @@
         app:youtube_timeMarginBottom="10dp"
         app:youtube_timeMarginRight="10dp"/>
 
-    <ImageView
-        android:id="@+id/photoImageView"
-
-        android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true" />
 
     <TextView
         android:id="@+id/videoNameTextView"
